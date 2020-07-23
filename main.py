@@ -1,0 +1,26 @@
+dirc = 0
+
+def on_forever():
+    global dirc
+    dirc = randint(0, 4)
+    led.plot(dirc, 0)
+    led.set_brightness(255)
+    basic.pause(200)
+    led.plot(dirc, 1)
+    led.set_brightness(170)
+    basic.pause(200)
+    led.plot(dirc, 2)
+    led.set_brightness(85)
+    basic.pause(200)
+    led.unplot(dirc, 0)
+    led.plot(dirc, 3)
+    basic.pause(200)
+    led.unplot(dirc, 1)
+    led.plot(dirc, 4)
+    basic.pause(200)
+    led.unplot(dirc, 2)
+    basic.pause(200)
+    led.unplot(dirc, 3)
+    basic.pause(200)
+    led.unplot(dirc, 4)
+basic.forever(on_forever)

@@ -1,36 +1,31 @@
-input.onButtonPressed(Button.A, function () {
-    led.unplot(dirc, led2)
-    dirc += -1
-    if (dirc == -1) {
-        dirc = 4
-    }
-})
-input.onButtonPressed(Button.B, function () {
-    led.unplot(dirc, led2)
-    dirc += 1
-    if (dirc == 4) {
-        dirc = 0
-    }
-})
 let dirc = 0
-let led2 = 0
-led2 = 0
-led.plot(dirc, led2)
-dirc = 0
 basic.forever(function () {
-    if (led2 == 0) {
-        for (let index = 0; index < 4; index++) {
-            led.unplot(dirc, led2)
-            led2 += 1
-            led.plot(dirc, led2)
-            basic.pause(500)
-        }
-    } else if (led2 == 4) {
-        for (let index = 0; index < 4; index++) {
-            led.unplot(dirc, led2)
-            led2 += -1
-            led.plot(dirc, led2)
-            basic.pause(500)
-        }
-    }
+    dirc = randint(0, 4)
+    led.plotBrightness(dirc, 0, 255)
+    basic.pause(100)
+    led.plotBrightness(dirc, 1, 255)
+    led.plotBrightness(dirc, 0, 150)
+    basic.pause(100)
+    led.plotBrightness(dirc, 2, 255)
+    led.plotBrightness(dirc, 1, 150)
+    led.plotBrightness(dirc, 0, 50)
+    basic.pause(100)
+    led.plotBrightness(dirc, 3, 255)
+    led.plotBrightness(dirc, 2, 150)
+    led.plotBrightness(dirc, 1, 50)
+    led.plotBrightness(dirc, 0, 0)
+    basic.pause(100)
+    led.plotBrightness(dirc, 4, 255)
+    led.plotBrightness(dirc, 3, 150)
+    led.plotBrightness(dirc, 2, 50)
+    led.plotBrightness(dirc, 1, 0)
+    basic.pause(100)
+    led.plotBrightness(dirc, 4, 150)
+    led.plotBrightness(dirc, 3, 50)
+    led.plotBrightness(dirc, 2, 0)
+    basic.pause(100)
+    led.plotBrightness(dirc, 4, 50)
+    led.plotBrightness(dirc, 3, 0)
+    basic.pause(100)
+    led.plotBrightness(dirc, 4, 0)
 })
